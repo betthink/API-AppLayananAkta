@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // $NomorKK = $_POST['NomorKK'];
     $FotoProfile = $_POST['FotoProfile'];
 
-    $insert = "UPDATE users SET Password='$Password', Nama='$Nama', Email='$Email', Email='$Email', NomorTelp='$NomorTelp', NIK='$NIK', FotoProfile='$FotoProfile' WHERE Id='$Id'";
+    $insert = "UPDATE users SET Password='$Password', Nama='$Nama', Email='$Email', NomorTelp='$NomorTelp', NIK='$NIK', FotoProfile='$FotoProfile' WHERE Id='$Id'";
     if (mysqli_query($conn, $insert)) {
         # code...
         $response['value'] = 1;
