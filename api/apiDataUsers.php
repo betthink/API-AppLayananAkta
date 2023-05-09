@@ -18,6 +18,7 @@ if ($conn) {
             $response[$i]['Level'] = $row['Level'];
 
             $i++;
+         
         }
         echo json_encode($response, JSON_PRETTY_PRINT);
     }

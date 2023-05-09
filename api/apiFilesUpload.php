@@ -6,7 +6,7 @@ if($conn) {
     if($result) {
         $i=0;
         while ($row = mysqli_fetch_assoc($result)) {
-            $response[$i]['Id'] = $row['Id'];
+            $response[$i]['IdUser'] = $row['IdUser'];
             $response[$i]['KK'] = $row['KK'];
             $response[$i]['KTP_Ibu'] = $row['KTP_Ibu'];
             $response[$i]['KTP_Ayah '] = $row['KTP_Ayah'];
@@ -15,6 +15,7 @@ if($conn) {
             $response[$i]['KTP_Saksi'] = $row['KTP_Saksi'];
             $response[$i]['KTP_Saksi2'] = $row['KTP_Saksi2'];
             $response[$i]['waktu_upload'] = $row['waktu_upload'];
+            $response[$i]['IdAnak'] = $row['IdAnak'];
           
             $i++;
         }

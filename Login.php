@@ -23,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $response['Email'] = $result['Email'];
         $response['NomorTelp'] = $result['NomorTelp'];
         $response['NIK'] = $result['NIK'];
+        $response['Pemberitahuan'] = $result['Pemberitahuan'];
         $response['WaktuRegister'] = $result['WaktuRegister'];
         $response['StatusLayanan'] = $result['StatusLayanan'];
 

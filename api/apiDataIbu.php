@@ -8,12 +8,13 @@ if($conn) {
         while ($row = mysqli_fetch_assoc($result)) {
             $response[$i]['Id'] = $row['Id'];
             $response[$i]['NIK'] = $row['NIK'];
-            $response[$i]['NamaLengkap'] = $row['NamaLengkap'];
-            $response[$i]['Tempat_Kelahiran '] = $row['Tempat_Kelahiran'];
-            $response[$i]['Waktu_Kelahiran'] = $row['Waktu_Kelahiran'];
+            $response[$i]['Nama'] = $row['Nama'];
+            $response[$i]['TempatKelahiran'] = $row['TempatKelahiran'];
+            $response[$i]['DateKelahiran'] = $row['DateKelahiran'];
             $response[$i]['Alamat'] = $row['Alamat'];
             $response[$i]['Kewarganegaraan'] = $row['Kewarganegaraan'];
             $response[$i]['Kebangsaan'] = $row['Kebangsaan'];
+            $response[$i]['IdUser'] = $row['IdUser'];
             // $response[$i]['Panjang_Bayi'] = $row['Panjang_Bayi'];
     
             $i++;

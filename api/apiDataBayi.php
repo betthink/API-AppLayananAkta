@@ -6,15 +6,18 @@ if($conn) {
     if($result) {
         $i=0;
         while ($row = mysqli_fetch_assoc($result)) {
-            $response[$i]['Id'] = $row['Id'];
+            $response[$i]['IdAnak'] = $row['IdAnak'];
             $response[$i]['Nama'] = $row['Nama'];
-            $response[$i]['Jenis_Kelamin'] = $row['Jenis_Kelamin'];
-            $response[$i]['Tempat_Kelahiran '] = $row['Tempat_Kelahiran'];
-            $response[$i]['Waktu_Kelahiran'] = $row['Waktu_Kelahiran'];
-            $response[$i]['Kelahiran'] = $row['Kelahiran'];
-            $response[$i]['Penolong_Bayi'] = $row['Penolong_Bayi'];
-            $response[$i]['Berat_Bayi'] = $row['Berat_Bayi'];
-            $response[$i]['Panjang_Bayi'] = $row['Panjang_Bayi'];
+            $response[$i]['JenisKelamin'] = $row['JenisKelamin'];
+            $response[$i]['TempatPersalinan'] = $row['TempatPersalinan'];
+            $response[$i]['TempatKelahiran '] = $row['TempatKelahiran'];
+            $response[$i]['DateKelahiran'] = $row['DateKelahiran'];
+            $response[$i]['TimeKelahiran'] = $row['TimeKelahiran'];
+            $response[$i]['UrutanKelahiran'] = $row['UrutanKelahiran'];
+            $response[$i]['PenolongBayi'] = $row['PenolongBayi'];
+            $response[$i]['BeratBayi'] = $row['BeratBayi'];
+            $response[$i]['PanjangBayi'] = $row['PanjangBayi'];
+            $response[$i]['IdUser'] = $row['IdUser'];
     
             $i++;
         }

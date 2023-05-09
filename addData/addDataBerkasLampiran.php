@@ -2,7 +2,8 @@
 
 require "../connect.php";
 // File KK
-
+$IdUser = $_POST["IdUser"];
+$IdAnak = $_POST["IdAnak"];
 $file_KK = basename($_FILES["KK"]["name"]);
 $Tmp_file_KK = $_FILES["KK"]["tmp_name"];
 // Data Ktp Ibu
@@ -25,22 +26,21 @@ $file_KTP_Saksi2 = basename($_FILES["KTP_Saksi2"]["name"]);
 $Tmp_file_KTP_Saksi2 = $_FILES["KTP_Saksi2"]["tmp_name"];
 
 $count = 0;
-$Id_name = $_POST["Id"];
+// $Id_name = $_POST["Id"];
 function uploadFiles($file_name, $file_tmp)
 {
 
-
     // buat folder
-    global $Id_name;
-    $cek_Dir = "../../aplikasiLayananAkta/uploads/{$Id_name}";
+    global $IdUser;
+    $cek_Dir = "../../aplikasiLayananAkta/uploads/{$IdUser}";
     if (is_dir($cek_Dir)) {
         echo "sudah ada folder <br>";
     } else {
-        mkdir("../../aplikasiLayananAkta/uploads/{$Id_name}", 0777, true);
+        mkdir("../../aplikasiLayananAkta/uploads/{$IdUser}", 0777, true);
     }
 
     // upload file to folder
-    $target_dir = "../../aplikasiLayananAkta/uploads/{$Id_name}/";
+    $target_dir = "../../aplikasiLayananAkta/uploads/{$IdUser}/";
     if (move_uploaded_file($file_tmp, $target_dir . $file_name)) {
         echo "File uploaded successfully.";
         // $insert = "INSERT INTO filesupload VALUE ()";
@@ -62,13 +62,14 @@ uploadFiles($file_KTP_Saksi2, $Tmp_file_KTP_Saksi2);
 
 if ($count == 7) {
 
-    $insert = "INSERT INTO filesupload VALUE('$Id_name','$file_KK','$file_KTP_Ibu','$file_KTP_Ayah','$file_Ket_Nikah','$file_Ket_LahirAnak','$file_KTP_Saksi','$file_KTP_Saksi2',NOW())";
+    $insert = "INSERT INTO filesupload VALUE('$IdAnak','$file_KK','$file_KTP_Ibu','$file_KTP_Ayah','$file_Ket_Nikah','$file_Ket_LahirAnak','$file_KTP_Saksi','$file_KTP_Saksi2',NOW(),'$IdUser')";
+    // var_dump($insert); die;
     // $insert = "INSERT INTO filesupload VALUE('1','1','1','1','1','1','1','1')";
 
     if (mysqli_query($conn, $insert)) {
         echo "Data berhasil di uplload ke database";
     } else {
-        echo "gagal brow";
+        echo "gagal upload ke database";
     }
 } else {
     echo "belum";

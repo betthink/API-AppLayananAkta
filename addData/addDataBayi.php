@@ -7,20 +7,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     // $data =["message"=> "test"];
     // echo json_encode($_POST['Username']);
     $response = array();
-    $Id = $_POST['Id'];
+    $IdUser = $_POST['IdUser'];
     $Nama = $_POST['Nama'];
-    $Jenis_Kelamin = $_POST['Jenis_Kelamin'];
-    $Tempat_Kelahiran = $_POST['Tempat_Kelahiran'];
-    $Waktu_Kelahiran = $_POST['Waktu_Kelahiran'];
-    $Kelahiran = $_POST['Kelahiran'];
-    $Penolong_Bayi = $_POST['Penolong_Bayi'];
-    $Berat_Bayi = $_POST['Berat_Bayi'];
-    $Panjang_Bayi = $_POST['Panjang_Bayi'];
+    $JenisKelamin = $_POST['JenisKelamin'];
+    $TempatPersalinan = $_POST['TempatPersalinan'];
+    $TempatKelahiran = $_POST['TempatKelahiran'];
+    $DateKelahiran = $_POST['DateKelahiran'];
+    $TimeKelahiran = $_POST['TimeKelahiran'];
+    $UrutanKelahiran = $_POST['UrutanKelahiran'];
+    $PenolongBayi = $_POST['PenolongBayi'];
+    $BeratBayi = $_POST['BeratBayi'];
+    $PanjangBayi = $_POST['PanjangBayi'];
+   
 
-    // $insert = "INSERT INTO databayi VALUE(Id='$Id' ,Nama='$Nama', Jenis_Kelamin='$Jenis_Kelamin', Tempat_Kelahiran='$Tempat_Kelahiran', Waktu_Kelahiran='$Waktu_Kelahiran', Kelahiran='$Kelahiran', Penolong_Bayi='$Penolong_Bayi, Berat_Bayi='$Berat_Bayi',Panjang_Bayi='$Panjang_Bayi')";
-
-
-    $insert = "INSERT INTO databayi VALUE('$Id','$Nama', '$Jenis_Kelamin', '$Tempat_Kelahiran','$Waktu_Kelahiran','$Kelahiran','$Penolong_Bayi',   '$Berat_Bayi','$Panjang_Bayi')";
+    $insert = "INSERT INTO databayi VALUES (NULL, '$Nama', '$JenisKelamin', '$TempatPersalinan', '$TempatKelahiran', '$DateKelahiran', '$TimeKelahiran', '$UrutanKelahiran', '$PenolongBayi', '$BeratBayi', '$PanjangBayi', '$IdUser')";
+// var_dump($insert); die;
 
 
     if (mysqli_query($conn, $insert)) {
