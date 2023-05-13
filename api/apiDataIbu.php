@@ -15,7 +15,7 @@ if($conn) {
             $response[$i]['Kewarganegaraan'] = $row['Kewarganegaraan'];
             $response[$i]['Kebangsaan'] = $row['Kebangsaan'];
             $response[$i]['IdUser'] = $row['IdUser'];
-            // $response[$i]['Panjang_Bayi'] = $row['Panjang_Bayi'];
+            $response[$i]['Pekerjaan'] = $row['Pekerjaan'];
     
             $i++;
         }

@@ -15,13 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Alamat = $_POST['Alamat'];
     $Kewarganegaraan = $_POST['Kewarganegaraan'];
     $Kebangsaan = $_POST['Kebangsaan'];
+    $Pekerjaan = $_POST['Pekerjaan'];
     $IdUser = $_POST['IdUser'];
-
-
-
-    $insert = "INSERT INTO dataibu VALUES ('$Id', '$NIK', '$Nama', '$TempatKelahiran', '$DateKelahiran', '$Alamat', '$Kewarganegaraan', '$Kebangsaan', '$IdUser')";
-    // $insert = "INSERT INTO dataibu VALUE('$Id','$NIK', '$NamaLengkap', '$Tempat_Kelahiran','$Waktu_Kelahiran','$Alamat','$Kewarganegaraan',   '$Kebangsaan')";
-
+    $insert = "INSERT INTO dataibu VALUES ('$Id', '$NIK', '$Nama', '$TempatKelahiran', '$DateKelahiran', '$Alamat', '$Kewarganegaraan', '$Kebangsaan','$Pekerjaan', '$IdUser')";
 
     // var_dump($insert);
     // die;

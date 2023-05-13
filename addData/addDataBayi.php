@@ -18,15 +18,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $PenolongBayi = $_POST['PenolongBayi'];
     $BeratBayi = $_POST['BeratBayi'];
     $PanjangBayi = $_POST['PanjangBayi'];
-   
+
 
     $insert = "INSERT INTO databayi VALUES (NULL, '$Nama', '$JenisKelamin', '$TempatPersalinan', '$TempatKelahiran', '$DateKelahiran', '$TimeKelahiran', '$UrutanKelahiran', '$PenolongBayi', '$BeratBayi', '$PanjangBayi', '$IdUser')";
-// var_dump($insert); die;
-
+    // var_dump($insert); die;
+   
 
     if (mysqli_query($conn, $insert)) {
         # code...
+        $id = mysqli_insert_id($conn);
         $response['value'] = 1;
+        $response['IdAnak'] = $id;
         $response['message'] = "Berhasil Terdaftar";
         echo json_encode($response);
     } else {
