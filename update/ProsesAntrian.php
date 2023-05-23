@@ -5,10 +5,12 @@ require "../connect.php";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     # code...
     $response = array();
-    $Id = $_POST['Id'];
+    $IdAntrian = $_POST['IdAntrian'];
+    $IdAdmin = $_POST['IdAdmin'];
     
 
-    $insert = "UPDATE `antrianvalid` SET `WaktuTerima` = NOW(), `Status` = 'Valid' WHERE `antrianvalid`.`IdAntrian` = $Id";
+    $insert = "UPDATE `antrianvalid` SET `Status` = 'Diproses', `IdAdmin` = '$IdAdmin' WHERE `antrianvalid`.`IdAntrian` = '$IdAntrian'";
+    // var_dump($insert); die;
 
 
     if (mysqli_query($conn, $insert)) {
