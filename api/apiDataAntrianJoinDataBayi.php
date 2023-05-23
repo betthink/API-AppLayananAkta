@@ -14,6 +14,7 @@ if($conn) {
             $response[$i]['IdPengambilan'] = $row['IdPengambilan'];
             $response[$i]['Status'] = $row['Status'];
             $response[$i]['IdUser'] = $row['IdUser'];
+            $response[$i]['IdAdmin'] = $row['IdAdmin'];
             $i++;
         }
         echo json_encode($response, JSON_PRETTY_PRINT);
