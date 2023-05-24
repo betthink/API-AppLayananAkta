@@ -9,18 +9,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $response = array();
     $Id = $_POST['Id'];
     $NIK = $_POST['NIK'];
-    $NamaLengkap = $_POST['NamaLengkap'];
-    $Tempat_Kelahiran = $_POST['Tempat_Kelahiran'];
-    $Waktu_Kelahiran = $_POST['Waktu_Kelahiran'];
+    $Nama = $_POST['Nama'];
+    $TempatKelahiran = $_POST['TempatKelahiran'];
+    $DateKelahiran = $_POST['DateKelahiran'];
     $Alamat = $_POST['Alamat'];
     $Kewarganegaraan = $_POST['Kewarganegaraan'];
     $Kebangsaan = $_POST['Kebangsaan'];
+    $IdUser = $_POST['IdUser'];
+    $insert = "INSERT INTO datasaksi2 VALUES ('$Id', '$NIK', '$Nama', '$TempatKelahiran', '$DateKelahiran', '$Alamat', '$Kewarganegaraan', '$Kebangsaan', '$IdUser')";
+  
 
-
-
-    $insert = "INSERT INTO datasaksi2 VALUE('$Id','$NIK', '$NamaLengkap', '$Tempat_Kelahiran','$Waktu_Kelahiran','$Alamat','$Kewarganegaraan',   '$Kebangsaan')";
-
-
+    // var_dump($insert);
+    // die;
     if (mysqli_query($conn, $insert)) {
         # code...
         $response['value'] = 1;

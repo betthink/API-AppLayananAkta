@@ -24,9 +24,9 @@ $Tmp_file_KTP_Saksi = $_FILES["KTP_Saksi"]["tmp_name"];
 // // Data Ket KTP_Saksi
 $file_KTP_Saksi2 = basename($_FILES["KTP_Saksi2"]["name"]);
 $Tmp_file_KTP_Saksi2 = $_FILES["KTP_Saksi2"]["tmp_name"];
-var_dump($file_KTP_Ibu);
-var_dump($Tmp_file_KTP_Ibu);
-;die;
+var_dump($IdUser);
+// var_dump($Tmp_file_KTP_Ibu);
+// die;
 $count = 0;
 // $Id_name = $_POST["Id"];
 function uploadFiles($file_name, $file_tmp)
