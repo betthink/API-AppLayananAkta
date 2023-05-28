@@ -1,3 +1,4 @@
+
 <?php
 
 require "../connect.php";
@@ -12,10 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $Email = $_POST['Email'];
     $NomorTelp = $_POST['NomorTelp'];
     $NIK = $_POST['NIK'];
-    $FotoProfile = $_POST['FotoProfile'];
-    // $Pemberitahuan = $_POST['Pemberitahuan'];
-    
-    // $Pemberitahuan = $_POST['Pemberitahuan'];
+    $FotoProfile = basename($_FILES["FotoProfile"]["name"]);
+    $tmp_FotoProfile = $_FILES["FotoProfile"]["tmp_name"];
     // // $WaktuPendaftaran = $_POST['WaktuPendaftaran'];
     // // $id = $_POST['id'];
     $cekNama = "SELECT * FROM users WHERE Nama='$Nama'";
@@ -29,13 +28,43 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $response['value'] = 2;
         $response['message'] = "Nama Sudah digunakan";
         echo json_encode($response);
-    }
-    else if(isset($resNIK)) {
+    } else if (isset($resNIK)) {
         $response['value'] = 3;
-        $response['message'] = "NIK Sudah digunakan";
+        $response['message'] = "NIKk Sudah digunakan";
         echo json_encode($response);
-    }
-    else {
+    } else {
+        $targetDir = "../../aplikasiLayananAkta/uploads/FotoProfile/{$NIK}/";
+        function moveFile($tmpFile, $targetFile)
+        {
+            // buat folder
+            global $NIK;
+            $cek_Dir = "../../aplikasiLayananAkta/uploads/FotoProfile/{$NIK}";
+            if (is_dir($cek_Dir)) {
+                $response['message'] = "Folder Sudah Ada";
+                echo json_encode($response);
+                return false;
+            } else {
+                mkdir("../../aplikasiLayananAkta/uploads/FotoProfile/{$NIK}", 0777, true);
+                if (move_uploaded_file($tmpFile, $targetFile)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+        if (moveFile($tmp_FotoProfile, $targetDir . $FotoProfile)) {
+            //   return true;
+            
+            $response['pesan'] = "Berhasil upload Foto";
+
+            echo json_encode($response);
+        } else {
+
+            $response['message'] = "Gagal upload Foto";
+            echo json_encode($response);
+            return false;
+        }
+
         $insert = "INSERT INTO users VALUE(NULL,'$Password','$Nama','$Email','$NomorTelp','$NIK','$FotoProfile',NOW(),'Belum ada pemberitahuan','Umum','')";
         if (mysqli_query($conn, $insert)) {
             # code...
